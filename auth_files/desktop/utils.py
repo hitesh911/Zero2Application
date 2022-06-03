@@ -5,6 +5,7 @@ import threading
 import socket
 from kivy.clock import Clock
 import random
+import signal
 
 # # twitter configuration
 # TWITTER_CLIENT_ID = ""
@@ -33,18 +34,17 @@ def _start_server(*args):
 
 
 def start_server(port):
-    thread = threading.Thread(target=_start_server)
-
-    thread.start()
+    server = threading.Thread(target=_start_server)
+    server.start()
 
 
 @app.route("/kill{}".format(ran_num))
 def close_server(*args, **kwargs):
     func = request.environ.get("werkzeug.server.shutdown")
     if func is None:
-        raise RuntimeError("Not running with the Werkzeug Server")
+        # raise RuntimeError("Not running with the Werkzeug Server")
+        os.kill(9004,signal.SIGTERM)
     func()
-
     return ""
 
 
