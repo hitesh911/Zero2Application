@@ -1,7 +1,7 @@
 from kivy.utils import platform
 
 if platform == "android":
-    from auth_files.desktop.desktopAuth import (
+    from auth_files.android.androidAuth import (
         initialize_google,
         login_google,
         logout_google,

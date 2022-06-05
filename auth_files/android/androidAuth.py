@@ -30,7 +30,6 @@ class GoogleActivityListener:
             task = GSignIn.getSignedInAccountFromIntent(data)
             try:
                 account = task.getResult(ApiException)
-                print(account)
                 _call_success(account)
 
             except Exception as e:
@@ -41,12 +40,11 @@ class GoogleActivityListener:
 def _call_success(account):
     if account:
         Logger.info("KivyAuth: Google Login success. Calling success listener.")
-        bro = event_success_listener(
+        event_success_listener(
             account.getDisplayName(),
             account.getEmail(),
             account.getPhotoUrl().toString() if account.getPhotoUrl() else '',
         )
-        print(bro)
         return True
 
 

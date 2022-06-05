@@ -383,9 +383,8 @@ class ZeroTwoApp(MDApp):
     def registerUserThroughGoogleAuth(self):
         # callback functions for initilixe_google function
         def register_succed(name , email , photo_url):
-            logout_google(self.useless)
-            Clock.schedule_once(partial(self.createNewUser, name , email ,photo_url),1)
-            return
+            print(name , email , photo_url)
+            # Clock.schedule_once(partial(self.createNewUser, name , email ,photo_url),1)
         def register_error():
              # msg to show in tost alert of error while registring
             Snackbar(

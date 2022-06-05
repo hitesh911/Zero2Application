@@ -53,7 +53,7 @@ def initialize_google(
     global client_google
     client_google = WebApplicationClient(GOOGLE_CLIENT_ID)
 
-
+# request.base_url + 
 @app.route("/loginGoogle")
 def loginGoogle():
     # takeout auth endpoint url from google login
@@ -63,7 +63,7 @@ def loginGoogle():
     # construct the request uri
     request_uri = client_google.prepare_request_uri(
         authorization_endpoint,
-        redirect_uri=request.base_url + "/callbackGoogle",
+        redirect_uri=f"https://127.0.0.1:{port}/loginGoogle/callbackGoogle",
         scope=["openid", "email", "profile"],
     )
 

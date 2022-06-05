@@ -1,11 +1,16 @@
+from typing import Protocol
 from flask import Flask, request, redirect
+# from gevent.pywsgi import WSGIServer
+
+from pynvim import Host
 import requests
 import os
 import threading
 import socket
 from kivy.clock import Clock
 import random
-import signal
+from . import killPort
+import uvicorn
 
 # # twitter configuration
 # TWITTER_CLIENT_ID = ""
@@ -28,7 +33,11 @@ ran_num = random.randint(1111, 9999)
 
 def _start_server(*args):
     try:
-        app.run(host="127.0.0.1", port=port, ssl_context=(cert_path, key_path) )
+        app.run(host="127.0.0.1", port=port , ssl_context=(cert_path, key_path))
+        # you can use this server also 
+        # server = WSGIServer(("127.0.0.1",port),app , keyfile = key_path , certfile = cert_path)
+        # server.serve_forever()
+
     except OSError:
         pass
 
@@ -43,8 +52,22 @@ def close_server(*args, **kwargs):
     func = request.environ.get("werkzeug.server.shutdown")
     if func is None:
         # raise RuntimeError("Not running with the Werkzeug Server")
-        os.kill(9004,signal.SIGTERM)
-    func()
+        try:
+            killPort.kill_port(9004)
+        except:
+            print("Still not working")
+    else:
+        func()
+    # trying to close some popular browsers by system calls
+    try:
+        os.system("pkill chrome")
+    except:
+        pass
+    try:
+        os.system("pkill firefox")
+    except:
+        pass
+        
     return ""
 
 
@@ -54,7 +77,7 @@ def stop_login(*args):
 
 def _close_server_pls(port, *args):
     try:
-        requests.get("https://127.0.0.1:{}/kill{}".format(port, ran_num), verify=False)
+        requests.get("https://127.0.0.1:{}/kill{}".format(port, ran_num),verify=False)
     except requests.exceptions.ConnectionError:
         pass
 
@@ -131,7 +154,7 @@ def is_connected():
 #         port = 9004
 #         start_server(port)
 
-#         webbrowser.open("https://127.0.0.1:{}/loginGoogle".format(port), 1, False)
+#         webbrowser.open("http://127.0.0.1:{}/loginGoogle".format(port), 1, False)
 
 #     else:
 #         print("Could not connect. Check connection and try again")
