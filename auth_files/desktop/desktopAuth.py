@@ -116,7 +116,7 @@ def callbackGoogle():
             userinfo_response["picture"],
         )
 
-        return "<h2>Success using google. Return to the application</h2>"
+        return "<h2>Success . Please Return to the Application manually</h2>"
 
     event_error_listener()
     return "User Email not available or not verified"
