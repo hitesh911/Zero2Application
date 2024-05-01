@@ -1,4 +1,4 @@
 class Envar():
-    base_api = "https://zerotwoblogapi.herokuapp.com"
-    auth_key= "JUFFLER"
-    superKey= "JUFFLER4998"
+    base_api = "https://example.com"
+    auth_key= "myekey"
+    superKey= "sorryican't expose"
