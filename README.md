@@ -22,7 +22,25 @@ It's essential to emphasize that Zero2Application has been archived and is no lo
 
 ## Getting Started
 
-As Zero2Application is no longer actively developed, the code is provided here for reference purposes only. Feel free to explore the codebase and reach out if you have any questions or insights to share.
+The magic of Zero2Application is that it still works! You can set up this project with very simple steps:
+
+1. **Install Python**: Ensure you have Python installed on your system. You can download it from the [official Python website](https://www.python.org/).
+
+2. **Install Dependencies**: Navigate to the project directory and install the required dependencies using pip:
+
+    ```
+    pip install -r requirements.txt
+    ```
+
+    This will install all the necessary packages to run the application.
+
+3. **Run the Application**: Once the dependencies are installed, you can run the application by executing the main Python file:
+
+    ```
+    python main.py
+    ```
+
+    The application should launch successfully, allowing you to explore its features and functionalities.
 
 ## License
 
