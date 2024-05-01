@@ -46,11 +46,11 @@ The magic of Zero2Application is that it still works! You can set up this projec
 
 ### Home Screen
 
-![Home Screen](homeImage.png)
+![Home Screen](homeImage)
 
 ### Side Panel
 
-![Side Panel](sideImage.png)
+![Side Panel](sideImage)
 
 ## License
 
