@@ -42,6 +42,16 @@ The magic of Zero2Application is that it still works! You can set up this projec
 
     The application should launch successfully, allowing you to explore its features and functionalities.
 
+## Screenshots
+
+### Home Screen
+
+![Home Screen](homeImage.png)
+
+### Side Panel
+
+![Side Panel](sideImage.png)
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
