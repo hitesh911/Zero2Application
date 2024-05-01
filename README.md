@@ -50,7 +50,7 @@ The magic of Zero2Application is that it still works! You can set up this projec
 
 ### Side Panel
 
-![Side Panel](sideImage)
+![Side Panel](sidebarImage)
 
 ## License
 
